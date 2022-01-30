@@ -1,22 +1,22 @@
 export const productsTypes = [
   {
     id: '1',
-    name: 'T-Shirts',
+    name: 'Science Fiction',
     count: '172',
   },
   {
     id: '2',
-    name: 'Sweatshirts',
+    name: 'Mystery',
     count: '131',
   },
   {
     id: '3',
-    name: 'Tank Tops',
+    name: 'Adventure',
     count: '56',
   },
   {
     id: '4',
-    name: 'Dress shirts',
+    name: 'Drama',
     count: '8',
   },
 ];

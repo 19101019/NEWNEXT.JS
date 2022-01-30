@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { some } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavProduct } from './../../store/actions/userActions';
+import Rater from 'react-Rater';
 
 const ProductItem = ({ discount, productImage, id, name, price, currentPrice }) => {
   const dispatch = useDispatch();
@@ -42,6 +43,15 @@ const ProductItem = ({ discount, productImage, id, name, price, currentPrice }) 
           }
         </div>
       </div>
+
+      <div className="product__rating">
+        <div className="react-rater">
+          <div className="react-rater-star">
+            <Rater total={5} interactive={false} rating={2} />
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 };
