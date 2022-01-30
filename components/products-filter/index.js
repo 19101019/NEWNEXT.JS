@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import productsTypes from './../../utils/data/products-types';
 import productsColors from './../../utils/data/products-colors';
 import productsSizes from './../../utils/data/products-sizes';
+import products from '../../utils/data/products';
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -37,6 +38,13 @@ const ProductsFilter = () => {
   const addQueryParams = () => {
     // query params changes
   }
+  const [data, setData]=useState(products);
+  const filterResult=(catItem)=>{
+    const result=products.filter((curData)=>{
+      return curData.category===catItem;
+    });
+    setData(result)
+  }
 
   return (
     <form className="products-filter" onChange={addQueryParams}>
@@ -45,7 +53,7 @@ const ProductsFilter = () => {
         className={`products-filter__menu-btn ${filtersOpen ? 'products-filter__menu-btn--active' : ''}`}>
           Add Filter <i className="icon-down-open"></i>
       </button>
-      
+
       <div className={`products-filter__wrapper ${filtersOpen ? 'products-filter__wrapper--open' : ''}`}>
         <div className="products-filter__block">
           <button type="button">Product type</button>
@@ -55,6 +63,7 @@ const ProductsFilter = () => {
                 key={type.id} 
                 name="product-type" 
                 label={type.name} 
+                onClick={()=>filterResult({key})}
               />
             ))}
           </div>
